@@ -1,0 +1,278 @@
+%Pr�ctica en LaTeX - Octubre, 2020
+\documentclass[10pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsthm,amsfonts,amscd,amssymb,amsbsy,epsf}
+\usepackage[all]{xy}
+\usepackage{graphicx, color}
+\usepackage{bbm, dsfont, mathrsfs}
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage[export]{adjustbox}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage[most]{tcolorbox}
+\usepackage{mathpazo}
+\usepackage{xcolor}
+
+
+%\usepackage[left=1.25cm, right=1.25cm, top=1.25cm, bottom=0.75cm]{geometry}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes,backgrounds,arrows,automata,topaths}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+
+
+%Definir el operador \sen
+\DeclareMathOperator{\sen}{sen}
+
+
+
+
+\voffset-1in
+\hoffset-1.5in
+\setlength{\textwidth}{19.75 cm}
+\setlength{\textheight}{24.5cm}
+\setlength{\parindent}{-0.75 pt}
+
+\begin{document}
+
+\pagestyle{fancy}
+
+
+% Por favor, llena tu nombre y cambia a tu grupo
+\lhead{   Nombre: Sebastian Valencia Zapata. Grupo 02 }
+
+\chead{ Pr\'{a}ctica en \LaTeX   }
+
+\rhead{  {\footnotesize \textsf{Matem\'{a}ticas Discretas}} \\
+	\text{} \vspace{-0.5cm} \\ {\footnotesize \textsf{Escuela de Matem\'{a}ticas}} }
+
+
+\section*{Enunciados de los ejercicios}
+
+%%%%%%%  Copia los enunciados de los ejercicios que te tocaron.
+\begin{enumerate}
+	\item (Johnsonbaugh, secci\'{o}n 1.1 - ejercicio 38) Muestre que $A \neq B$:
+	
+	\[ A= \left\{ 1,3,5 \right\}, B = \left\{ n|n \in Z^{+} \quad \textrm{and} \quad n^{2}-1 \leq n \right\}\]
+	
+	\item (Johnsonbaugh, secci\'{o}n 1.3 - ejercicio 71) Para el par de proposiciones $P$ y $Q$ determinar si se cumple o no que $P \equiv Q$
+	
+	\[ P= (p \rightarrow q) \rightarrow r\]
+	\[ Q= p \rightarrow (q \rightarrow r)\]
+	
+	\item (Kenneth Rosen, secci\'{o}n 1.6 - ejercicio 27) Usar reglas de inferencia para mostrar que si $\quad \forall x( P(x) \rightarrow (Q(x) \land S(x))) \quad$ y $\forall x(P(x) \land R(x))$ son verdaderas, entonces $\forall x(R(x) \land S(x))$ es verdadera.
+	
+	\item (Kenneth Rosen, secci\'{o}n 1.5 - ejercicio 33) Reescriba cada uno de estos enunciados para que las negaciones solo aparezcan dentro de los predicados (es decir, para que ninguna negación esté fuera de un cuantificador o una expresión que involucre conectores lógicos):
+	
+	    \begin{enumerate}
+	    
+	        \item $\neg \forall x \forall y P(x,y)$
+	        \item $\neg \forall y \exists x P(x,y)$
+	        \item $\neg \forall y \forall x (P(x,y) \lor Q(x,y))$
+	        \item $\neg (\exists x \exists y \neg P(x,y) \land \forall x \forall y Q(x,y))$
+	        \item $\neg \forall x(\exists y \forall z P(x,y,z) \land \exists z \forall y P(x,y,z))$
+	        
+        \end{enumerate}
+	
+	\item (Sussana Epp, secci\'{o}n 2.3 - ejercicio 22) Usa símbolos para escribir la forma lógica de cada argumento, y luego use una tabla de verdad para probar la validez del argumento. Indique cuáles columnas representan premisas y cuáles representan la conclusión, e incluya unas palabras de explicación que demuestren que entiendes el significado de validez.
+	
+	\[
+        \begin{tabular}{ cl}
+        	& Si Tom no está en el equipo $A$, entonces Hua está en el equipo $B$ \\
+        	& Si Hua no está en el equipo $B$, entonces Tom está en el equipo $A$ \\
+        	%&& && \\
+        	&  \\
+        	\hline \\
+        	$\therefore$ &  Tom no está en el equipo $A$ o Hua no está en el equipo $B$ \\
+        \end{tabular}
+    \]
+	
+\end{enumerate}
+
+\newpage
+
+%%%%%%%  Ac\'{a} van los soluciones.
+
+\section*{Soluciones}
+
+
+\begin{enumerate}
+	\item La primera condición para afirmar $3 \in B$ se cumple:
+	
+	\[ 3 \in Z^{+} \]
+	
+	Pero la segunda condición no se cumple:  
+	
+	\[ 3^{2}-1 = 8 > 3\]
+	
+	Por lo tanto, $3 \notin B$
+	
+	Ya que $3\in A$ pero $3\notin B$ entonces $A \neq B$
+	\item Tabla de verdad de $P$:
+	
+	    \begin{center}
+            \begin{tabular}{ |c|c|c|c|c| } 
+             \hline 
+             $p$ & $q$ & $r$ & $p \rightarrow q$ & $(p \rightarrow q) \rightarrow r$ \\  [0.5ex] 
+                \hline
+             T & T & T & T & T\\ 
+             T & T & F & T & F\\ 
+             T & F & T & F & T\\ 
+             T & F & F & F & T\\ 
+             F & T & T & T & T\\ 
+             F & T & F & T & F\\ 
+             F & F & T & T & T\\ 
+             F & F & F & T & F\\ 
+             \hline
+            \end{tabular}
+        \end{center}
+        
+         Tabla de verdad de $Q$:
+         
+         \begin{center}
+            \begin{tabular}{ |c|c|c|c|c| } 
+             \hline 
+             $p$ & $q$ & $r$ & $q \rightarrow r$ & $p \rightarrow (q \rightarrow r)$ \\  [0.5ex] 
+                \hline
+             T & T & T & T & T\\ 
+             T & T & F & F & F\\ 
+             T & F & T & T & T\\ 
+             T & F & F & T & T\\ 
+             F & T & T & T & T\\ 
+             F & T & F & F & T\\ 
+             F & F & T & T & T\\ 
+             F & F & F & T & T\\ 
+             \hline
+            \end{tabular}
+        \end{center}
+        
+        Por las diferencias en sus tablas de verdad, se concluye que $P \not \equiv Q$
+        
+	\item De cada proposición podemos inferir el valor de verdad de otras:
+	
+	    \begin{center}
+            \begin{tabular}{ |c|c|c| } 
+             \hline 
+             
+             Número & Proposición & Razón\\  [0.5ex] 
+                \hline
+             1 & $\forall x(P(x)\rightarrow (Q(x) \land S(x) ))$ & Premisa\\ [0.5ex]
+             2 & $\forall x(P(x) \land R(x))$  & Premisa\\ [0.5ex]
+             3 & $P(a)\rightarrow (Q(a) \land S(a) )$ & Instanciación universal (1)\\ [0.5ex]
+             4 & $P(a) \land R(a)$ & Instanciación universal (2)\\ [0.5ex]
+             5 & $P(a)$ & Simplificación (4)\\ 
+             6 & $R(a)$ & Simplificación (4)\\ 
+             7 & $Q(a) \land S(a) $ & Modus ponens (3) (5)\\
+             8 & $S(a)$ & Simplificación (7)\\
+             9 & $R(a) \land S(a)$ & Conjunción (6) (8)\\
+             10 & $\forall x(R(x) \land S(x))$ & Generalización universal (9)\\
+             \hline
+            \end{tabular}
+        \end{center}
+	
+	\item Usamos las leyes de Morgan generalizadas para hayar las proposiciones equivalentes:
+	
+	    \begin{enumerate}
+	    
+	        \item 
+	        $\neg \forall x \forall y P(x,y)$ 
+                $\equiv$ 
+	        $\exists x \neg (\forall y P(x,y))$ 
+	            $\equiv$ 
+	        $\exists x \exists y \neg P(x,y)$
+	        \\
+	        
+	        \item 
+	        $\neg \forall y \exists x P(x,y)$
+	            $\equiv$
+            $\exists y \neg (\exists x P(x,y))$
+                $\equiv$
+            $\exists y \forall x \neg P(x,y)$
+            \\
+            
+	        \item 
+	        $\neg \forall y \forall x (P(x,y) \lor Q(x,y))$
+	            $\equiv$
+            $\exists y \neg (\forall x (P(x,y) \lor Q(x,y)))$
+	            $\equiv$ 
+            \\
+	        $\exists y \exists x \neg (P(x,y) \lor Q(x,y))$
+	            $\equiv$
+	        $\exists y \exists x ( \neg P(x,y) \land \neg Q(x,y))$
+	        \\
+	        
+	        \item 
+	        $\neg (\exists x \exists y \neg P(x,y) \land \forall x \forall y Q(x,y))$
+	            $\equiv$
+            $\neg (\exists x \exists y \neg P(x,y)) \lor \neg(\forall x \forall y Q(x,y))$
+	            $\equiv$ 
+            \\
+            $(\forall x \neg (\exists y \neg P(x,y))) \lor (\exists x \neg(\forall y Q(x,y)))$
+	            $\equiv$
+            $(\forall x \forall y P(x,y)) \lor (\exists x \exists y \neg Q(x,y))$
+	        \\
+	        
+	        \item 
+	        $\neg \forall x(\exists y \forall z P(x,y,z) \land \exists z \forall y P(x,y,z))$
+	            $\equiv$
+            $\exists x \neg (\exists y \forall z P(x,y,z) \land \exists z \forall y P(x,y,z))$
+	            $\equiv$
+            \\
+            $\exists x (\neg (\exists y \forall z P(x,y,z)) \lor \neg (\exists z \forall y P(x,y,z)))$
+	            $\equiv$
+            $\exists x (\forall y \neg (\forall z P(x,y,z)) \lor \forall z \neg (\forall y P(x,y,z)))$
+	            $\equiv$
+            \\
+            $\exists x (\forall y \exists z \neg P(x,y,z) \lor \forall z \exists y \neg P(x,y,z))$
+	        
+        \end{enumerate}
+        
+	\item Argumento expresados simbólicamente:
+	
+	\begin{center}
+	    $P:$ Tom está en el equipo A \\
+	    $Q:$ Hua está en el equipo B
+	\end{center}
+	
+	\[
+        \begin{tabular}{ clccl}
+        	& $\neg P \rightarrow Q$ &  && \textsf{Premisa 1}\\
+        	& $\neg Q \rightarrow P$ &  && \textsf{Premisa 2}\\
+        	%&& && \\
+        	& & && \\
+        	\hline \\
+        	$\therefore$ & $\neg P \lor \neg Q$ & && \textsf{Conclusi\'{o}n}\\
+        \end{tabular}
+    \]
+    
+	
+	\begin{center}
+	
+            \begin{tabular}{ |c|c|c|c|c|c|c|c| }
+             \hline 
+             $P$ & $Q$ & $\neg P$ & $\neg Q$ & $\neg P \rightarrow Q$ & $\neg Q \rightarrow P$ & $(\neg P \rightarrow Q) \land (\neg Q \rightarrow P)$ & $\neg P \lor \neg Q$\\  [0.5ex] 
+                \hline
+             T & T & F & F & T & T & T & F\\ 
+             T & F & F & T & T & T & T & T\\ 
+             F & T & T & F & T & T & T & T\\ 
+             F & F & T & T & F & F & F & T\\ 
+             \hline
+            \end{tabular}
+    
+    \end{center}
+    
+    En la tabla, las columnas 5 y 6 son las premisas. La columna 7 es una conjunción de ambas premisas. La columna 8 es la conclusión.
+    
+    
+    
+    En la primera fila de los valores de verdad se observa que cuando las dos premisas son verdaderas, la conclusión es falsa. Por esto, se presenta una incongruencia en el argumento. Así, sabemos que este argumento no es válido.
+	
+	
+\end{enumerate}
+
+\end{document}
